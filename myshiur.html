@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MyShiur</title>
+        <link rel="stylesheet" href="myshiur.css" />
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</head>
+
+<body>
+        
+
+        <!-- Authentication Section -->
+        <div class="card card-body" id="loginCard">
+                <h3 class="text-center mb-4">Login</h3>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <input type="text" id="loginUsername" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                    <p class="text-center mt-2">
+                        <a href="#" id="showSignUp">Need an account? Sign up</a>
+                    </p>
+                </form>
+            </div>
+            <div class="card card-body" id="registerCard" style="display:none;">
+                <h3 class="text-center mb-4">Sign Up</h3>
+                <form id="registerForm">
+<div class="form-group">
+                        <input type="text" id="signupFirstname" class="form-control" placeholder="First name" required>
+                    </div>
+<div class="form-group">
+                        <input type="text" id="signupLastname" class="form-control" placeholder="Last name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="signupUsername" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signupEmail" class="form-control" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signupPassword" class="form-control" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <p class="text-center mt-2">
+                        <a href="#" id="showLogin">Already have an account? Log in</a>
+                    </p>
+                </form>
+            </div>
+            <!-- Logout Button -->
+            <button id="logoutButton" style="display:none;" class="btn btn-danger">Logout</button>
+        </div>
+    </div>
+
+
+        <main id="mainContent" style="display: none;">
+
+                <div id="navBarWrapper" style="display: none;">
+                        <nav>
+                            <ul class="navbar">
+                                <li><a href="#shiur-options">Browse Shiurim</a></li>
+                                <li><a href="#add">Add Shiur</a></li>
+                                <li><a href="#contact-us">Contact Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                <!-- Shiurim Display Section -->
+                <h1 id="shiur-options">Find Shiurim</h1>
+                <section id="shiurim-display">
+                        <div id="widgetContainer" class="carousel"></div>
+
+                        <h1 id="shiur-map">Shiurim on the map</h1>
+                        <div id="mapContainer">
+                                <iframe id="mapIframe" width="100%" height="400" frameborder="0" class="map-iframe"
+                                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC79Tff-TQXxzVnD3SeOPF5lcc_NH0N9Rw&q=7531+150th+St,Kew+Gardens+Hills,NY+11367"
+                                        allowfullscreen>
+                                </iframe>
+                        </div>
+                </section>
+
+                <!-- Add Shiur Form Section -->
+                <h1 id="add">Add a Shiur</h1>
+                <section id="add-shiur">
+                        <form id="userForm" class="shiur-form">
+                                <input type="text" id="shiur-name" placeholder="Shul/Beis Medrash/Kollel Name"
+                                        required />
+                                <select id="topic" required>
+                                        <option value="">Select Topic</option>
+                                        <option value="Halacha">Halacha</option>
+                                        <option value="Gemara">Gemara</option>
+                                        <option value="Machshava">Machshava</option>
+                                        <option value="Tanach">Tanach</option>
+                                        <option value="Hashkafa">Hashkafa</option>
+                                        <option value="Miscellaneous">Miscellaneous</option>
+                                </select>
+                                <input type="text" id="location" placeholder="Address" required />
+                                <input type="text" id="speaker" placeholder="Maggid Shiur's Name" required />
+                                <input type="text" id="title" placeholder="Shiur Title" required />
+                                <input type="datetime-local" id="datetime" required />
+                                <input type="email" id="user-email" placeholder="Your Email (optional)" />
+                                <button type="submit">Add Shiur</button>
+                                <div id="statusMessage"></div>
+                        </form>
+                </section>
+
+                <!-- Contact Form Section -->
+                <h1 id="contact-us">Contact Us</h1>
+                <section id="contact-us-section">
+                        <form id="contactForm" class="contact-form">
+                                <input type="text" id="contact-name" placeholder="Your Name" required />
+                                <input type="email" id="contact-email" placeholder="Your Email" required />
+                                <textarea id="message" placeholder="Your Message" required></textarea>
+                                <button type="submit">Send Message</button>
+                                <div id="contactStatusMessage"></div>
+                        </form>
+                </section>
+
+                <footer id ="footer">
+                        <p>&copy; 2025 MyShiur. All rights reserved.</p>
+                        <p>
+                            <a href="#contact-us" >Contact Us</a> |
+                            <a href="#">Privacy Policy</a>
+                        </p>
+                    </footer>
+        
+        </main>
+
+        <script src="myshiur.js"></script>
+</body>
+
+</html>
