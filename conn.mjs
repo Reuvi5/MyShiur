@@ -1,6 +1,9 @@
 import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 
-const uri = "mongodb+srv://rkupchik:Squeeks5@cluster0.lnurwql.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+dotenv.config();
+
+const uri = process.env.MONGODB_URI;
 
 const client = new MongoClient(uri);
 
@@ -9,7 +12,6 @@ async function connectDB() {
         await client.connect();
         console.log("Connected to MongoDB");
         return client.db("myDatabase"); 
-
     } catch (e) {
         console.error("Failed to connect to MongoDB", e);
         process.exit(1);
